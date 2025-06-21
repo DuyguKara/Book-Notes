@@ -1,0 +1,235 @@
+html {
+    background-color: rgb(255, 240, 133, 0.8);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+.header {
+    background-color: rgba(241, 103, 103, 0.8);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header:hover {
+    background-color: rgba(241, 103, 103, 1);
+    box-shadow: 2px 2px 35px rgb(255, 155, 23);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px rgb(255, 240, 133);
+}
+
+h2 {
+    margin-top: 15rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+.book-notes {
+    background-color: rgb(255, 240, 133);
+    margin-top: 2.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 1.5rem;
+}
+
+.book-title {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: rgba(241, 103, 103, 1);
+}
+
+.summary {
+    text-align: center;
+}
+
+a {
+    color: rgb(241, 103, 103);
+    text-decoration-line: none;
+    font-weight: normal;
+}
+
+a:hover {
+    text-decoration-line: underline;
+    font-weight: bolder;
+}
+.date-point {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+}
+
+section:last-of-type hr {
+    display: none;
+  }
+
+h3 {
+    color: rgb(255, 155, 23);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+footer {
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 4rem;
+}
+
+hr {
+    margin-top: 3rem;
+    background-color: rgb(255, 155, 23);
+    border: none;
+    height: 2px;
+}
+
+.add-button {
+    margin-top: 3rem !important;
+    cursor: pointer;
+    text-align: center;
+    padding: 1rem;
+    border: none;
+    border-radius: 20px;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: bold;
+    font-style: normal;
+    font-size: x-large;
+    background-color: rgba(241, 103, 103, 0.8);
+    display: block;
+    margin: auto;
+}
+
+.add-button:hover {
+    background-color: rgba(241, 103, 103, 1);
+}
+
+.modal-class {
+    position: fixed;
+    top: 25%;
+    background-color: rgba(255, 155, 23, 0.9);
+    left: 10%;
+    right: 10%;
+    bottom: 20%;
+    border-radius: 20px;
+    border: 2px solid rgb(255, 240, 133);
+    display: none;
+}
+
+.close-button {
+    cursor: pointer;
+    padding-top: 0.1rem;
+    padding-bottom: 0.3rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    font-size: xx-large;
+    border-radius: 30px;
+    float: right;
+    margin: 3px;
+}
+
+.close-button:hover {
+    background-color: rgb(255, 240, 133);
+}
+
+.modal-content {
+    position: relative;
+    padding: 1rem; /* genel iç boşluk */
+    max-height: 100%;/* modal content bulunduğu kapsayıcının yüksekliğini geçemez yani model class ekranda ne kadar yer kaplıyosa bu da o kadar olucak */
+    overflow-y: auto; /* max height sınırını aşıcak kadar içerik varsa scroll ekliyo */
+    box-sizing: border-box;/* padding yüzünden taşmaları önlüyo */
+  }
+
+  .add-book, .edit-book {
+    margin-top: 3rem; /* X butonu ile arasında boşluk */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+input, textarea {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+.newBookButton {
+    background-color: rgb(241, 103, 103, 0.8);
+    font-family: "Shadows Into Light", cursive;
+    font-weight: bold;
+    font-style: normal;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.newBookButton:hover{
+    background-color: rgb(241, 103, 103, 1);
+}
+
+.del-edit {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.edit-button, .delete-button {
+    cursor: pointer;
+    background-color: rgb(255, 240, 133);
+    border: none;
+}
+@media screen and (max-width: 900px) {
+    .navbar {
+        font-size: 1.2rem;
+    }
+    h2 {
+        margin-top: 10rem;
+    }
+  }
+
+@media screen and (max-width: 400px) {
+    .navbar {
+        font-size: 0.8rem;
+    }
+    h2 {
+        margin-top: 9rem;
+    }
+
+    .book-info {
+        flex: unset;
+    }
+  }
