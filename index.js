@@ -27,10 +27,15 @@ async function getItems() {
 //DB'den gelen veri [{id:1, title:'bla'...}, {...}]
 
 app.get("/", async(req,res)=>{
-    const items = await getItems();
-    res.render("index.ejs", {
+    try{
+       const items = await getItems();
+        res.render("index.ejs", {
         bookInfo: items
-    });
+        }); 
+    }catch(err){
+        console.log(err);
+    }
+    
 });
 
 app.post("/add", async(req,res)=>{
@@ -40,16 +45,26 @@ app.post("/add", async(req,res)=>{
     const point = req.body["read-point"];
     const summary = req.body["read-sum"];
     const link = req.body["book-link"];
-    await db.query("INSERT INTO booksInfo (title, readdate, bookpoint, summary, url) VALUES ($1, $2, $3, $4, $5)", 
+    try{
+        await db.query("INSERT INTO booksInfo (title, readdate, bookpoint, summary, url) VALUES ($1, $2, $3, $4, $5)", 
         [title, date, point,summary, link]);
-    res.redirect("/");
+        res.redirect("/");
+    }catch(err){
+        console.log(err);
+    }
+    
 });
 
 app.post("/delete", async(req, res)=>{
    // console.log(req.body["deletedBookNote"]); hangi notun çöp kutusuna basılırsa onun id değeri geliyor.
    const id = req.body["deletedBookNote"];
-   await db.query("DELETE FROM booksInfo WHERE id = $1", [id]);
+   try{
+    await db.query("DELETE FROM booksInfo WHERE id = $1", [id]);
     res.redirect("/");
+   }catch(err){
+    console.log(err);
+   }
+   
 });
 
 app.post("/edit", async(req, res)=>{
@@ -60,20 +75,34 @@ app.post("/edit", async(req, res)=>{
     const summary = req.body["updatedread-sum"];
     const link = req.body["updatedbook-link"];
     const id = req.body["updatedItemId"];
-    await db.query("UPDATE booksInfo SET (title, readdate, bookpoint, summary, url) = ($1, $2, $3, $4, $5) WHERE id = $6", 
+
+    try{
+        await db.query("UPDATE booksInfo SET (title, readdate, bookpoint, summary, url) = ($1, $2, $3, $4, $5) WHERE id = $6", 
         [title, date, point, summary, link, id]);
-     res.redirect("/");
+        res.redirect("/");
+    }catch(err){
+        console.log(err);
+    }
 });
 
 app.post("/sort", async(req, res)=>{
     const sort = req.body["sortOption"];
     //console.log(sort); date
     if(sort === "date"){
-        const sortedData = await db.query("SELECT * FROM booksInfo ORDER BY readdate DESC");
-        res.render("index.ejs", {bookInfo : sortedData.rows});
+        try{
+            const sortedData = await db.query("SELECT * FROM booksInfo ORDER BY readdate DESC");
+            res.render("index.ejs", {bookInfo : sortedData.rows});
+            }catch(err){
+                console.log(err);
+            }
+        
     }else{
-        const sortedData = await db.query("SELECT * FROM booksInfo ORDER BY bookpoint DESC");
-        res.render("index.ejs", {bookInfo : sortedData.rows});
+        try{
+            const sortedData = await db.query("SELECT * FROM booksInfo ORDER BY bookpoint DESC");
+            res.render("index.ejs", {bookInfo : sortedData.rows});
+        }catch(err){
+            console.log(err);
+        }
     }
 });
 
