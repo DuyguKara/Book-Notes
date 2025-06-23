@@ -65,6 +65,18 @@ app.post("/edit", async(req, res)=>{
      res.redirect("/");
 });
 
+app.post("/sort", async(req, res)=>{
+    const sort = req.body["sortOption"];
+    //console.log(sort); date
+    if(sort === "date"){
+        const sortedData = await db.query("SELECT * FROM booksInfo ORDER BY readdate DESC");
+        res.render("index.ejs", {bookInfo : sortedData.rows});
+    }else{
+        const sortedData = await db.query("SELECT * FROM booksInfo ORDER BY bookpoint DESC");
+        res.render("index.ejs", {bookInfo : sortedData.rows});
+    }
+});
+
 app.listen(port,()=>{
     console.log(`Server listening on port ${port}`)
 });

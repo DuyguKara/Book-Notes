@@ -1,7 +1,19 @@
 <%- include('partials/header.ejs'); -%>
 
 <main>
-    <h2>On this site you can find my notes about the books I read. Have Fun!</h2>
+    <h2>On this site you can find my notes about the books I read. Have Fun!</h2><br><br>
+
+    <form action="/sort" method="post" class="radio-buttons" id="sort-form">
+        <div>
+            <label for="sort-by-date">Sort By Date</label>
+        <input type="radio" id="sort-by-date" name="sortOption" value="date" onchange="document.getElementById('sort-form').submit()"><br>
+        </div>
+        <div>
+            <label for="sort-by-point">Sort By Point</label>
+        <input type="radio" id="sort-by-point" name="sortOption" value="point" onchange="document.getElementById('sort-form').submit()"><br>
+        </div>
+        
+    </form><br><br>
 
     <% for(let item of bookInfo){ %>
     <section id="book-note<%= item.id %>">

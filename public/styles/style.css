@@ -221,6 +221,14 @@ input, textarea {
     }
   }
 
+.radio-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
 @media screen and (max-width: 400px) {
     .navbar {
         font-size: 0.8rem;
