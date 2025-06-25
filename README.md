@@ -2,6 +2,8 @@
 
 Bu projede okuduğum kitap notlarını gösteren bir websitesi yapmayı hedefledim. Bu websitesi verilerini postgresql üzerinde kurmuş olduğum veritabanında tutuyor. Kitap notları ekleyebilir, görüntüleyebilir, düzenleyebilir ve silebilirsiniz. Ayrıca tarihe ve kitap puanına göre sıralama yapabilirsiniz.
 
+📌**Not:** Bu projede kitap kapaklarını [open library covers API](https://openlibrary.org/dev/docs/api/covers)'den elde ettim.
+
 ## Installation
 
 Projemi kendi bilgisayarınızda çalıştırmak istiyorsanız projenin kodlarını github'tan indirdikten sonra package.json dosyasındaki npm paket ve modüllerini aşağıdaki komutu takip ederek indirmelisiniz.
