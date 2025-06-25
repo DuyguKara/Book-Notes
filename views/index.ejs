@@ -18,7 +18,7 @@
     <% for(let item of bookInfo){ %>
     <section id="book-note<%= item.id %>">
         <div class="book-notes">
-            <div class="book-img"><img src="/assests/1003w-FNig_YUbce4.webp" alt="Book Image" width="120" height="200"></div>
+            <div class="book-img"><img src="https://covers.openlibrary.org/b/isbn/<%=item.isbnno%>-L.jpg" alt="Book Image" width="120" height="200"></div>
             <div class="book-info">
                 <div class="del-edit">
                     <form action="/delete" method="post">
@@ -71,6 +71,8 @@
         <span onclick="document.getElementById('modal').style.display='none'" class="close-button close-display-topright">&times;</span>
         
         <form class="add-book" action="/add" method="post">
+            <label for="isbn">ISBN:</label>
+            <input type="number" id="isbn" name="isbnNo" required><br><br>
             <label for="title">Title:</label>
             <input type="text" id="title" name="bookTitle" required><br><br>
             <label for="date">Date:</label>

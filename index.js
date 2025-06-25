@@ -24,8 +24,6 @@ async function getItems() {
     return items.rows;
 };
 
-//DB'den gelen veri [{id:1, title:'bla'...}, {...}]
-
 app.get("/", async(req,res)=>{
     try{
        const items = await getItems();
@@ -40,14 +38,15 @@ app.get("/", async(req,res)=>{
 
 app.post("/add", async(req,res)=>{
     //console.log(req.body["bookTitle"]);
+    const isbn =req.body["isbnNo"];
     const title = req.body["bookTitle"];
     const date = req.body["read-date"];
     const point = req.body["read-point"];
     const summary = req.body["read-sum"];
     const link = req.body["book-link"];
     try{
-        await db.query("INSERT INTO booksInfo (title, readdate, bookpoint, summary, url) VALUES ($1, $2, $3, $4, $5)", 
-        [title, date, point,summary, link]);
+        await db.query("INSERT INTO booksInfo (isbnno, title, readdate, bookpoint, summary, url) VALUES ($1, $2, $3, $4, $5, $6)", 
+        [isbn, title, date, point,summary, link]);
         res.redirect("/");
     }catch(err){
         console.log(err);
