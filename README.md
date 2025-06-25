@@ -6,8 +6,8 @@ Bu projede okuduğum kitap notlarını gösteren bir websitesi yapmayı hedefled
 
 Projemi kendi bilgisayarınızda çalıştırmak istiyorsanız projenin kodlarını github'tan indirdikten sonra package.json dosyasındaki npm paket ve modüllerini aşağıdaki komutu takip ederek indirmelisiniz.
 
-```
-bash npm install
+```bash 
+npm install
 ```
 
 Node.js ortamının bilgisayarınızda kurulu olduğundan emin olun eğer henüz kurmadıysanız burdan kurabilirsiniz. [node.js](https://nodejs.org/en/download/package-manager)
