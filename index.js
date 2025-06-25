@@ -19,6 +19,12 @@ db.connect();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
+function getTime(){
+    const d = new Date();
+    const time = d.getFullYear();
+    return time;
+}
+
 async function getItems() {
     const items = await db.query("SELECT * FROM booksInfo");
     return items.rows;
@@ -26,9 +32,11 @@ async function getItems() {
 
 app.get("/", async(req,res)=>{
     try{
-       const items = await getItems();
+        const date = getTime();
+        const items = await getItems();
         res.render("index.ejs", {
-        bookInfo: items
+        bookInfo: items,
+        date: date
         }); 
     }catch(err){
         console.log(err);
